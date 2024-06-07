@@ -1,6 +1,6 @@
 module github.com/jakeslee/ikuai
 
-go 1.21.3
+go 1.20
 
 require github.com/go-resty/resty/v2 v2.7.0
 

@@ -6,7 +6,7 @@ import (
 )
 
 func getClient() *IKuai {
-	i := NewIKuai("http://10.10.1.253", "test", "test123")
+	i := NewIKuai("http://ikuai.com", "admin", "hello12345", true, true)
 
 	return i
 }
@@ -77,4 +77,36 @@ func TestIKuai_ShowSysStat(t *testing.T) {
 	}
 
 	t.Logf("%+v", result)
+}
+
+func TestIKuai_ShowLanList(t *testing.T) {
+	client := getClient()
+
+	_, err := client.Login()
+	if err != nil {
+		t.Error(err)
+	}
+
+	result, err := client.ShowLanList()
+	if err != nil {
+		return
+	}
+
+	if err != nil {
+		t.Error(err)
+	}
+
+	t.Logf("%+v", result)
+
+	cresult, err := client.ShowWanVlanInterface("wan1")
+	if err != nil {
+		return
+	}
+
+	if err != nil {
+		t.Error(err)
+	}
+
+	t.Logf("%+v", cresult)
+
 }

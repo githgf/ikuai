@@ -72,3 +72,28 @@ func (i *IKuai) ShowMonitorInterface() (*action.ShowMonitorInterfaceResult, erro
 
 	return resp, nil
 }
+
+func (i *IKuai) ShowWanVlanInterface(infName string) (*action.ShowWanVlanListResult, error) {
+	resp := &action.ShowWanVlanListResult{}
+	ac := action.NewWanVlanListAction()
+	ac.Param["interface"] = infName
+
+	_, err := i.Run(i.session, ac, resp)
+	if err != nil {
+		return nil, err
+	}
+
+	return resp, nil
+}
+
+func (i *IKuai) ShowLanList() (*action.ShowLanResult, error) {
+	resp := &action.ShowLanResult{}
+	ac := action.NewLanListAction()
+
+	_, err := i.Run(i.session, ac, resp)
+	if err != nil {
+		return nil, err
+	}
+
+	return resp, nil
+}
