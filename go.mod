@@ -1,4 +1,4 @@
-module github.com/jakeslee/ikuai
+module github.com/githgf/ikuai
 
 go 1.20
 

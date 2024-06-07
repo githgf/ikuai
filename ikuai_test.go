@@ -1,7 +1,7 @@
 package ikuai
 
 import (
-	"github.com/jakeslee/ikuai/action"
+	"github.com/githgf/ikuai/action"
 	"testing"
 )
 
