@@ -73,10 +73,13 @@ func (i *IKuai) ShowMonitorInterface() (*action.ShowMonitorInterfaceResult, erro
 	return resp, nil
 }
 
-func (i *IKuai) ShowWanVlanInterface(infName string) (*action.ShowWanVlanListResult, error) {
+func (i *IKuai) ShowWanVlanInterface(infName string, limit string) (*action.ShowWanVlanListResult, error) {
 	resp := &action.ShowWanVlanListResult{}
 	ac := action.NewWanVlanListAction()
 	ac.Param["interface"] = infName
+	if limit != "" {
+		ac.Param["limit"] = limit
+	}
 
 	_, err := i.Run(i.session, ac, resp)
 	if err != nil {
